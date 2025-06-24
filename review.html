@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Feedback & Reviews - Real Builders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .dashboard-container {
+            padding: 40px 20px;
+        }
+
+        .dashboard-container h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .review-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .review-card {
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .review-header h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .review-header .rating {
+            display: flex;
+            gap: 5px;
+        }
+
+        .review-header .rating span {
+            color: gold;
+            font-size: 18px;
+        }
+
+        .review-body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>REAL BUILDERS</h1>
+        </div>
+        <div>
+            <a href="signin.html" class="sign-in">Logout</a>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <h2>Client Feedback & Reviews</h2>
+        <div class="review-container">
+            <!-- Review Cards -->
+            <div class="review-card">
+                <div class="review-header">
+                    <h3>John Doe</h3>
+                    <div class="rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    "Real Builders provided an excellent service during my property search. Their team was professional and helpful throughout the process."
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <h3>Jane Smith</h3>
+                    <div class="rating">
+                        <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    "The process was smooth, but I faced minor delays in getting updates. Overall, a satisfactory experience."
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <h3>Michael Brown</h3>
+                    <div class="rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    "Outstanding service! Real Builders made the property buying process easy and stress-free."
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <h3>Sarah Lee</h3>
+                    <div class="rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    "The team was incredibly supportive, though there were slight miscommunications. Overall, great service!"
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <h3>Chris Evans</h3>
+                    <div class="rating">
+                        <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    "Reasonable experience, but I expected more frequent updates about my property inquiry."
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <h3>Emily White</h3>
+                    <div class="rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    "Very professional team with a customer-centric approach. Highly recommend their services!"
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <h3>David Clark</h3>
+                    <div class="rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    "Exceptional service. I found the perfect property with Real Builders' help."
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <h3>Anna Taylor</h3>
+                    <div class="rating">
+                        <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    "Good service, but I felt the initial response was slow."
+                </div>
+            </div>
+
+            <!-- Add more cards in similar style for the remaining 7 reviews -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 REAL BUILDERS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

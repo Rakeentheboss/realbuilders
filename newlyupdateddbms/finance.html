@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Insights - Real Builders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .dashboard-container {
+            padding: 40px 50px;
+        }
+
+        .dashboard-container h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .chart-card {
+            width: 550px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            text-align: center;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 30px 50px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>REAL BUILDERS</h1>
+        </div>
+        <div>
+            <a href="signin.html" class="sign-in">Logout</a>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <h2>Financial Insights</h2>
+        <div class="chart-container">
+            <!-- Monthly Profit/Loss Chart -->
+            <div class="chart-card">
+                <h3>Monthly Profit/Loss</h3>
+                <canvas id="profitLossChart"></canvas>
+            </div>
+            <!-- Yearly Financial Summary Chart -->
+            <div class="chart-card">
+                <h3>Yearly Financial Summary</h3>
+                <canvas id="summaryChart"></canvas>
+            </div>
+            <!-- Income Distribution Chart -->
+            <div class="chart-card">
+                <h3>Income Distribution</h3>
+                <canvas id="incomeChart"></canvas>
+            </div>
+            <!-- Expense Breakdown Chart -->
+            <div class="chart-card">
+                <h3>Expense Breakdown</h3>
+                <canvas id="expenseChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 REAL BUILDERS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Income Chart Data
+        const incomeData = {
+            labels: ['Sales', 'Rent', 'Consultation'],
+            datasets: [{
+                label: 'Income (in Taka)',
+                data: [150000, 75000, 25000],
+                backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(153, 102, 255, 0.6)'],
+                borderColor: ['rgba(75, 192, 192, 1)', 'rgba(54, 162, 235, 1)', 'rgba(153, 102, 255, 1)'],
+                borderWidth: 1
+            }]
+        };
+
+        // Expense Chart Data
+        const expenseData = {
+            labels: ['Operational Costs', 'Marketing', 'Maintenance'],
+            datasets: [{
+                label: 'Expenses (in Taka)',
+                data: [50000, 30000, 20000],
+                backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)'],
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                borderWidth: 1
+            }]
+        };
+
+        // Profit/Loss Chart Data
+        const profitLossData = {
+            labels: Array.from({ length: 12 }, (_, i) => `Month ${i + 1}`),
+            datasets: [{
+                label: 'Profit/Loss (in Taka)',
+                data: Array.from({ length: 12 }, () => (Math.random() * 50000 - 25000).toFixed(2)),
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Yearly Financial Summary Data
+        const summaryData = {
+            labels: ['Income', 'Expenses', 'Profit'],
+            datasets: [{
+                label: 'Yearly Summary (in Lakh Taka)',
+                data: [300, 200, 100],
+                backgroundColor: ['rgba(54, 162, 235, 0.6)', 'rgba(255, 99, 132, 0.6)', 'rgba(75, 192, 192, 0.6)'],
+                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'],
+                borderWidth: 1
+            }]
+        };
+
+        // Initialize Charts
+        new Chart(document.getElementById('incomeChart'), {
+            type: 'pie',
+            data: incomeData
+        });
+
+        new Chart(document.getElementById('expenseChart'), {
+            type: 'doughnut',
+            data: expenseData
+        });
+
+        new Chart(document.getElementById('profitLossChart'), {
+            type: 'line',
+            data: profitLossData
+        });
+
+        new Chart(document.getElementById('summaryChart'), {
+            type: 'bar',
+            data: summaryData
+        });
+    </script>
+</body>
+</html>

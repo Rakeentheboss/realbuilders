@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .intro-section {
+            text-align: center;
+            padding: 50px 30px;
+            background: #f3f4f6;
+        }
+
+        .intro-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .slider-section {
+            padding: 40px 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            width: calc(300px * 3 * 2); /* Double the width to accommodate seamless looping */
+            animation: slide 40s linear infinite;
+        }
+
+        .slider-item {
+            flex: 0 0 auto;
+            width: 300px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s;
+            margin-right: 20px;
+        }
+
+        .slider-item:hover {
+            transform: scale(1.05);
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .slider-item-content {
+            padding: 20px;
+        }
+
+        .slider-item-content h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #555;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .footer {
+            background: #333;
+            color: #fff;
+            padding: 30px 50px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>REAL BUILDERS</h1>
+        </div>
+        <nav>
+            <a href="mb.php">Home</a>
+            <a href="buy.html">FlexiDeal</a>
+            <a href="viewsell.php">Sell</a>
+            <a href="viewrent.php">Rent</a>
+            <a href="yourproperties.php">View your properties</a>
+            <a href="about us.html">About Us</a>
+        </nav>
+        <div>
+            <a href="signin.html" class="sign-in" id="logout">Logout</a>
+        </div>
+    </header>
+
+    <div class="intro-section">
+        <h2>Transform Your Space with Our Expertise</h2>
+        <p>Discover personalized interior design solutions tailored to your style and needs. Let's bring your dream space to life!</p>
+    </div>
+
+    <section class="slider-section">
+        <h2 style="text-align: center;">Find Our Designers</h2>
+        <div class="slider">
+            <!-- Original items -->
+            <div class="slider-item">
+                <a href="sheikhabdullah.html">
+                    <img src="designer/1.jpg" alt="Designer 1">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Sheikh Abdullah</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="marcusrashford.html">
+                    <img src="designer/2.jpg" alt="Designer 2">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Marcus Rashford</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="nicolasjackson.html">
+                    <img src="designer/3.webp" alt="Designer 3">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Nicolas Jackson</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="emilycarter.html">
+                    <img src="designer/9.jpg" alt="Designer 4">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Emily Carter</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="jonathansmith.html">
+                    <img src="designer/5.jpeg" alt="Designer 5">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Jonathan Smith</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="oliviabrown.html">
+                    <img src="designer/6.png" alt="Designer 6">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Olivia Brown</h3>
+                </div>
+            </div>
+
+            <!-- Duplicate items for seamless loop -->
+            <div class="slider-item">
+                <a href="sheikhabdullah.html">
+                    <img src="designer/1.jpg" alt="Designer 1">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Sheikh Abdullah</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="marcusrashford.html">
+                    <img src="designer/2.jpg" alt="Designer 2">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Marcus Rashford</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="nicolasjackson.html">
+                    <img src="designer/3.webp" alt="Designer 3">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Nicolas Jackson</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="emilycarter.html">
+                    <img src="designer/9.jpg" alt="Designer 4">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Emily Carter</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="jonathansmith.html">
+                    <img src="designer/5.jpeg" alt="Designer 5">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Jonathan Smith</h3>
+                </div>
+            </div>
+            <div class="slider-item">
+                <a href="oliviabrown.html">
+                    <img src="designer/6.png" alt="Designer 6">
+                </a>
+                <div class="slider-item-content">
+                    <h3>Olivia Brown</h3>
+                </div>
+            </div>
+
+          
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 REAL BUILDERS. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Check if the user is logged in
+        if (!sessionStorage.getItem('isLoggedIn')) {
+            window.location.href = 'signin.html'; // Redirect to login page if not logged in
+        }
+
+
+
+
+
+
+        // Logout action
+        document.getElementById('logout').addEventListener('click', function() {
+            // Clear sessionStorage when logging out
+            sessionStorage.clear();
+            alert('Logged out');
+            window.location.href = 'signin.html'; // Redirect to login page after logout
+        });
+    });
+
+    console.log("isLoggedIn:", sessionStorage.getItem('isLoggedIn'));
+console.log("username:", sessionStorage.getItem('username'));
+
+    </script>
+</body>
+</html>

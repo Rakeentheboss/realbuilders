@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Uploads</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .dashboard-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            background: #ff5733;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .dashboard-btn:hover {
+            background: #e64a2e;
+        }
+
+        .activity-container {
+            margin: 50px auto;
+            width: 80%;
+        }
+
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #27ae60;
+            color: white;
+            font-size: 18px;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Property Uploads</h1>
+    <a href="admin.html" class="dashboard-btn">Back to Dashboard</a>
+</header>
+
+<div class="activity-container">
+    <h2>Uploaded Properties Overview</h2>
+    <p>Total Properties Uploaded: <strong id="total-properties">0</strong></p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Contact Info</th>
+            <th>Location</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody id="property-table-body">
+        <tr><td colspan="5">Loading...</td></tr>
+    </tbody>
+</table>
+
+<script>
+    function updateUploads(properties) {
+        document.getElementById('total-properties').innerText = properties;
+    }
+
+    function loadProperties() {
+        fetch('property_uploads.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error("Server Error:", data.error);
+                    return;
+                }
+
+                updateUploads(data.total_properties);
+
+                let tableBody = document.getElementById("property-table-body");
+                tableBody.innerHTML = "";
+
+                if (data.properties.length > 0) {
+                    data.properties.forEach(property => {
+                        let row = `<tr>
+                            <td>${property.id}</td>
+                            <td>${property.title}</td>
+                            <td>${property.contact_info}</td>
+                            <td>${property.location}</td>
+                            <td>${property.username}</td>
+                        </tr>`;
+                        tableBody.innerHTML += row;
+                    });
+                } else {
+                    tableBody.innerHTML = "<tr><td colspan='5'>No properties found</td></tr>";
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    loadProperties();
+</script>
+
+</body>
+</html>

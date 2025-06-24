@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Real Builders</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-info h2 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+
+        .profile-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            flex: 1;
+            min-width: 180px;
+            margin: 10px;
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .stat-card p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .charts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .chart-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            flex: 1;
+            min-width: 300px;
+            margin: 10px;
+        }
+
+        .recent-activity {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            margin-top: 20px;
+        }
+
+        .recent-activity ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .recent-activity li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .stats-container, .charts-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stat-card, .chart-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>REAL BUILDERS</h1>
+    <div>
+        <a href="mb.html" class="sign-in">Home</a>
+    </div>
+    <div>
+            <a href="signin.html" class="sign-in">Logout</a>
+        </div>
+</header>
+
+<div class="container">
+    <div class="profile-header">
+        <img src="user/user.webp" alt="User Avatar">
+        <div class="profile-info">
+            <h2>Leonardo De Caprio</h2>
+            <p>Email: leocaprio@gmail.com</p>
+            <p>Member since: 2021</p>
+        </div>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <h3>Total Listings</h3>
+            <p>500+</p>
+        </div>
+        <div class="stat-card">
+            <h3>Saved Properties</h3>
+            <p>89</p>
+        </div>
+        <div class="stat-card">
+            <h3>Inquiries</h3>
+            <p>118</p>
+        </div>
+        <div class="stat-card">
+            <h3>User Rating</h3>
+            <p>4.7 ★</p>
+        </div>
+    </div>
+
+    <div class="charts-container">
+        <div class="chart-card">
+            <h3>Property Views</h3>
+            <canvas id="viewsChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>Messages, Inquiries and Meetings</h3>
+            <canvas id="messagesChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>Total Listings Performance</h3>
+            <canvas id="listingsChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>User Engagement</h3>
+            <canvas id="engagementChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>Earnings from Listings</h3>
+            <canvas id="earningsChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>User Growth</h3>
+            <canvas id="userGrowthChart"></canvas>
+        </div>
+    </div>
+
+    <div class="recent-activity">
+        <h3>Recent Activity</h3>
+        <ul>
+            <li>Viewed: 3 BHK Apartment in Dhaka</li>
+            <li>Sent Inquiry: Luxury Villa in Banani</li>
+            <li>Saved: 2 BHK Apartment in Mirpur</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function createChart(ctx, type, labels, data, colors) {
+        new Chart(ctx, {
+            type: type,
+            data: { labels: labels, datasets: [{ data: data, backgroundColor: colors }] }
+        });
+    }
+
+    createChart(document.getElementById('viewsChart'), 'bar', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], [100, 150, 200, 250, 100, 500, 200, 200, 100, 100, 600, 900], ['#36a2eb']);
+    createChart(document.getElementById('messagesChart'), 'pie', ['Inquiries', 'Messages'], [10, 25], ['#ff6384', '#36a2eb']);
+    createChart(document.getElementById('listingsChart'), 'line', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], [5, 10, 15, 20], ['#4CAF50']);
+    createChart(document.getElementById('engagementChart'), 'doughnut', ['Views', 'Inquiries', 'Messages'], [50, 30, 20], ['#f39c12', '#e74c3c', '#3498db']);
+    createChart(document.getElementById('earningsChart'), 'radar', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], [1000, 1500, 2000, 2500, 1000, 1500, 2000, 2500, 1000, 1500, 2000, 2500], ['#ffce56']);
+    createChart(document.getElementById('userGrowthChart'), 'line', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], [900, 1500, 2800, 2500, 1200, 1500, 2000, 2500, 1600, 1500, 2100, 2700], ['#8e44ad']);
+</script>
+
+</body>
+</html>

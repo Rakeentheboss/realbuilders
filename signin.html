@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real Builders Authentication Portal">
+    <title>Real Builders Authentication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7c7c7b;
+            --text-color: #ffffff;
+            --secondary-color: #f7f4f1;
+            --form-bg: #202020;
+            --btn-hover: #ffffff;
+            --btn-hover-text: #202020;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #cccccc;
+            color: var(--text-color);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .main-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .left-section {
+            width: 50%;
+            background: var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo-container {
+            margin-bottom: 0rem;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #333333;
+            text-align: center;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        .right-section {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-container {
+            width: 350px;
+            height: 500px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-side {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            background: var(--form-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .card-side.front {
+            transform: rotateY(0deg);
+        }
+
+        .card-side.back {
+            transform: rotateY(180deg);
+        }
+
+        .form-title {
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        .form-label {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px var(--primary-color);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--btn-hover-text);
+            background: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.7s;
+        }
+
+        .submit-btn:hover {
+            background: var(--btn-hover);
+        }
+
+        .submit-btn-admin {
+            width: 30%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #080808;
+            background: #7c7c7b;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.7s;
+        }
+
+        .submit-btn-admin:hover {
+            background: #ffffff;
+        }
+
+        .switch-link {
+            padding: 0.5rem;
+            font-size: 1rem;
+            color: #ffffff;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="logo-container">
+                <img src="signup/4.png" alt="Logo">
+            </div>
+            <div class="logo-text">REAL BUILDERS</div>
+            <div class="slogan">"Building dreams, one foundation at a time. Your trusted partner in real estate."</div>
+            <button type="button" class="submit-btn-admin" onclick="window.location.href='signinasadmin.html'">Login as Admin</button>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="card-container">
+                <div id="card" class="card">
+                    <!-- Front Side: Sign Up -->
+                    <div class="card-side front">
+                        <form id="signup-form" action="register.php" method="POST" onsubmit="return validateSignupForm()">
+                            <h3 class="form-title">Sign Up</h3>
+                            <div class="form-group">
+                                <label for="signup-username" class="form-label">Username</label>
+                                <input type="text" name="username" id="signup-username" class="form-input" placeholder="Enter your username" required>
+                                <span id="username-error" class="error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-email" class="form-label">Email</label>
+                                <input type="email" name="email" id="signup-email" class="form-input" placeholder="Enter your email" required>
+                                <span id="email-error" class="error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-password" class="form-label">Password</label>
+                                <input type="password" name="password" id="signup-password" class="form-input" placeholder="Enter your password" required>
+                                <span id="password-error" class="error"></span>
+                            </div>
+                            <button type="submit" class="submit-btn">Sign Up</button>
+                            <span class="switch-link" onclick="toggleCard()">Already have an account? Log in</span>
+                        </form>
+                    </div>
+
+                    <!-- Back Side: Login -->
+                    <div class="card-side back">
+                        <form id="loginForm" action="signin.php" method="POST" onsubmit="return handleLogin(event)" id="loginForm">
+                            <h3 class="form-title">Log In</h3>
+                            <div class="form-group">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" name="username" id="username" class="form-input" placeholder="Enter your username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" id="password" class="form-input" placeholder="Enter your password" required>
+                            </div>
+                            <button type="submit" class="submit-btn">Login</button>
+                            <span class="switch-link" onclick="toggleCard()">Don't have an account? Sign Up</span>
+                        </form>
+
+
+                    
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <script> 
+        function toggleCard() {
+            document.getElementById('card').classList.toggle('is-flipped');
+        }
+
+
+
+        function handleLogin(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+
+    fetch('signin.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json()) // Parse the response as JSON
+    .then(data => {
+        if (data.success) {
+            // Store session info in sessionStorage
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('username', data.username);
+
+            // Redirect to user home page
+            window.location.href = 'mb.php';
+        } else {
+            alert(data.message); // Show the error message from PHP
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while processing your login.');
+    });
+}
+
+console.log("isLoggedIn:", sessionStorage.getItem('isLoggedIn'));
+console.log("username:", sessionStorage.getItem('username'));
+
+    </script>
+</body>
+</html>

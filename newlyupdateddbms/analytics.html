@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Real Builders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .dashboard-container {
+            padding: 40px 50px;
+        }
+
+        .dashboard-container h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .chart-card {
+            width: 550px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            text-align: center;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 30px 50px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>REAL BUILDERS</h1>
+        </div>
+        <div>
+            <a href="signin.html" class="sign-in">Logout</a>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <h2>Analytics Dashboard</h2>
+        <div class="chart-container">
+            <!-- User Activity Chart -->
+            <div class="chart-card">
+                <h3>User Activity</h3>
+                <canvas id="userActivityChart"></canvas>
+            </div>
+            <!-- Property Performance Chart -->
+            <div class="chart-card">
+                <h3>Property Performance</h3>
+                <canvas id="propertyPerformanceChart"></canvas>
+            </div>
+            <!-- Revenue Chart -->
+            <div class="chart-card">
+                <h3>Revenue Overview</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <!-- Lead Conversions Chart -->
+            <div class="chart-card">
+                <h3>Lead Conversions</h3>
+                <canvas id="leadConversionsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 REAL BUILDERS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // User Activity Chart Data
+        const userActivityData = {
+            labels: Array.from({ length: 100 }, (_, i) => `Day ${i + 1}`),
+            datasets: [{
+                label: 'Active Users',
+                data: Array.from({ length: 100 }, () => Math.floor(Math.random() * 300)),
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Property Performance Chart Data
+        const propertyPerformanceData = {
+            labels: ['Viewed', 'Inquiries', 'Listed'],
+            datasets: [{
+                label: 'Performance',
+                data: [1230, 250, 100],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Revenue Chart Data
+        const revenueData = {
+            labels: Array.from({ length: 12 }, (_, i) => `Month ${i + 1}`),
+            datasets: [{
+                label: 'Revenue (in Crore Taka)',
+                data: Array.from({ length: 12 }, () => (Math.random() * 5 + 10).toFixed(2)),
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Lead Conversions Chart Data
+        const leadConversionsData = {
+            labels: ['Converted', 'Not Converted'],
+            datasets: [{
+                label: 'Leads',
+                data: [27, 73],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(201, 203, 207, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(201, 203, 207, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Initialize Charts
+        new Chart(document.getElementById('userActivityChart'), {
+            type: 'line',
+            data: userActivityData
+        });
+
+        new Chart(document.getElementById('propertyPerformanceChart'), {
+            type: 'bar',
+            data: propertyPerformanceData
+        });
+
+        new Chart(document.getElementById('revenueChart'), {
+            type: 'line',
+            data: revenueData
+        });
+
+        new Chart(document.getElementById('leadConversionsChart'), {
+            type: 'pie',
+            data: leadConversionsData
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Builders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .properties1 {
+            text-align: center;
+            margin: 40px auto;
+            padding: 40px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            max-width: 800px;
+        }
+
+        .properties h1 {
+            margin-bottom: 30px;
+            background-color: #777;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+
+        .form-group h2,
+        .form-group h3,
+        .form-group h4,
+        .form-group h5,
+        .form-group1 h6 {
+            margin-bottom: 10px;
+        }
+
+        .form-group input {
+            width: 100%;
+            max-width: 700px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+
+.form-group1 input {
+    max-height: 150px; /* Set a max height */
+    overflow: auto; /* Enable scrolling */
+    width: 100%;
+    max-width: 700px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Scrollbar Styling */
+.form-group1::-webkit-scrollbar {
+    width: 100px;
+}
+
+.form-group1::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.form-group1::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* Corrected .properties1 h1 */
+
+        .form-group input[type="file"] {
+            width: auto;
+        }
+
+        button.btn {
+            padding: 15px 30px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        button.btn:hover {
+            background-color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>REAL BUILDERS</h1>
+        </div>
+        <nav>
+            <a href="mb.php">Home</a>
+            <a href="buy.html">FlexiDeal</a>
+            <a href="viewrent.php">Rent</a>
+            <a href="designers.html">Interior Design Solutions</a>
+            <a href="yourproperties.php">View your properties</a>
+            <a href="about us.html">About Us</a>
+        </nav>
+        <div>
+            <a href="signin.html" class="sign-in">Logout</a>
+        </div>
+    </header>
+
+    <form action="update.php" method="post" enctype="multipart/form-data">
+        <section class="properties1">
+            <h1>Update Your Property</h1>
+
+            <div class="form-group">
+                <h2>Title</h2>
+                <input type="text" name="title" placeholder="Enter the property name with a suitable description">
+            </div>
+
+            <div class="form-group">
+                <h3>Contact Info</h3>
+                <input type="text" name="contact_info" placeholder="Provide detailed contact info">
+            </div>
+
+            <div class="form-group">
+                <h5>Upload Photo of Your Property</h5>
+                <input type="file" name="photo">
+                <input type="file" name="photo1">
+                <input type="file" name="photo2">
+                <input type="file" name="photo3">
+                <input type="file" name="photo4">
+                <input type="file" name="photo5">
+            </div>
+
+            <div class="form-group">
+                <h5>Upload the lease agreement</h5>
+                <input type="file" name="lease_agreement_path">
+            </div>
+
+            <div class="form-group">
+                <h5>Upload the ownership documents</h5>
+                <input type="file" name="ownership_documents_path">
+            </div>
+
+            <div class="form-group">
+                <h2>Location</h2>
+                <input type="text" name="location" placeholder="e.g., Gulshan, Dhaka">
+            </div>
+
+            <div class="form-group">
+                <h2>Price Details</h2>
+                <input type="text" name="price" placeholder="Enter the price">
+            </div>
+
+            <div class="form-group1">
+                <h2>Property Type</h2>
+                <input type="text" name="type" placeholder="Apartment/Villa/Commercial/Studio/Skyline/Mansion/Corporate/Studio(Urban)/Rent">
+            </div>
+            <div class="form-group1">
+                <h2>Add Description</h2>
+                <input type="text" name="description" placeholder="Start from here">
+            </div>
+            Note: *The photo uploaded in the first file will be displayed in the front page<br>
+                  *Make sure to write down the type exactly like the placeholder<br>
+                  *Make sure not to use any ,.?''"";:|\ or other imaginary characters<br>
+                  *If you want to Rent type Rent<br>
+            
+            <br><br><br>
+            <button class="btn" type="submit">Submit</button>
+        </section>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 REAL BUILDERS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

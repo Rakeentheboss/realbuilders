@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENT | Real Builders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .rent-properties {
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .rent-properties h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .property-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .property-card {
+            width: 280px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .property-card:hover {
+            transform: scale(1.05);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .property-details {
+            padding: 15px;
+        }
+
+        .property-details h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .property-details p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .btn {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        .footer {
+            background: #333;
+            color: #fff;
+            padding: 30px 50px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>REAL BUILDERS</h1>
+        </div>
+        <nav>
+            <a href="mb.php">Home</a>
+            <a href="buy.html">Buy</a>
+            <a href="sell.html">Sell</a>
+            <a href="designers.html">Interior Design Solutions</a>
+            <a href="yourproperties.php">View your properties</a>
+            <a href="about us.html">About Us</a>
+        </nav>
+        <div>
+            <a href="signin.html" class="sign-in">Logout</a>
+        </div>
+    </header>
+
+    <section class="rent-properties">
+        <h2>Available Properties for Rent</h2>
+        <div class="property-list">
+            <div class="property-card">
+                <img src="rent/rent2.jpg" alt="Modern Apartment">
+                <div class="property-details">
+                    <h3>Modern Apartment</h3>
+                    <p class="price">৳30,000/month</p>
+                    <p>Stylish apartment in the city center with all amenities.</p>
+                    <button class="btn" onclick="viewDetails('modernApartment')">View Details</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="rent/rent3.jpg" alt="Family Home">
+                <div class="property-details">
+                    <h3>Family Home</h3>
+                    <p class="price">৳45,000/month</p>
+                    <p>A spacious home perfect for families, near schools and parks.</p>
+                    <button class="btn" onclick="viewDetails('familyHome')">View Details</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="rent/rent1.jpg" alt="Cozy Studio">
+                <div class="property-details">
+                    <h3>Cozy Studio</h3>
+                    <p class="price">৳25,000/month</p>
+                    <p>Compact and comfortable studio ideal for singles or couples.</p>
+                    <button class="btn" onclick="viewDetails('cozyStudio')">View Details</button>
+                </div>
+            </div>
+
+            <!-- Additional Properties -->
+            <div class="property-card">
+                <img src="rent/1.jpg" alt="Luxury Villa">
+                <div class="property-details">
+                    <h3>Luxury Villa</h3>
+                    <p class="price">৳40,000/month</p>
+                    <p>Luxurious villa with a private pool and garden.</p>
+                    <button class="btn" onclick="viewDetails('luxuryVilla')">View Details</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="rent/Pent2.jpg" alt="Penthouse">
+                <div class="property-details">
+                    <h3>Penthouse</h3>
+                    <p class="price">৳50,000/month</p>
+                    <p>Exclusive penthouse with breathtaking city views.</p>
+                    <button class="btn" onclick="window.location.href='rent-link.html';">View Details</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>About Real Builders</h3>
+        <p>REAL BUILDERS is your trusted partner in real estate development, sales, and consultation. Discover your dream property today!</p>
+        <p>&copy; 2024 REAL BUILDERS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function viewDetails(property) {
+            let details = {
+                modernApartment: "Modern apartment with city view, 3 bedrooms, 2 bathrooms, gym access, and parking.",
+                familyHome: "Spacious home with 4 bedrooms, 3 bathrooms, garden, and close to schools.",
+                cozyStudio: "Compact studio, perfect for singles or couples with all basic amenities.",
+                luxuryVilla: "5-bedroom villa with private pool, garden, and modern interiors.",
+                penthouse: "Luxurious penthouse with 4 bedrooms, terrace, and stunning skyline views."
+            };
+            alert(details[property]);
+        }
+    </script>
+</body>
+</html>

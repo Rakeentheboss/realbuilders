@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designers Portfolios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .intro-section {
+            text-align: center;
+            padding: 50px 30px;
+            background: #f3f4f6;
+        }
+
+        .intro-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .intro-section p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .profile-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            border: 3px solid #4caf50;
+        }
+
+        .profile-section img {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-details,
+        .contact-details {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        .profile-details span,
+        .contact-details span {
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        .slider-container {
+            margin: 40px auto;
+            max-width: 90%;
+            background: #f9fbe7;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px dashed #cddc39;
+            overflow: hidden;
+        }
+
+        .slider-heading {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .slider {
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+       
+        .slider-container {
+            margin: 40px auto;
+            max-width: 90%;
+            background: #f9fbe7;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px dashed #cddc39;
+            overflow: hidden;
+        }
+
+        .slider-heading {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .slider {
+            display: flex;
+            width: calc(300px * 6); /* 6 images */
+            animation: slide 20s linear infinite;
+        }
+
+        .slider img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-1800px); /* Total width of all images */
+            }
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px 50px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Interior Design Services</h1>
+        </div>
+        <nav>
+            <a href="mb.php">Home</a>
+            <a href="buy.html">FlexiDeal</a>
+            <a href="viewsell.php">Sell</a>
+            <a href="viewrent.php">Rent</a>
+            <a href="designers.html">Interior Design Solutions</a>
+            <a href="yourproperties.php">View your Properties</a>
+            <a href="about us.html">About Us</a>
+        </nav>
+        <div>
+            <a href="signin.html" class="sign-in">Logout</a>
+        </div>
+    </header>
+
+   
+
+    <div class="intro-section">
+        <h2>Emily Carter</h2>
+        <p>Bringing dreams to life with exquisite, timeless designs.</p>
+    </div>
+
+    <div class="profile-section">
+        <img src="designer/9.jpg" alt="Emily Carter">
+        <div class="profile-details">
+            <p><span>Name:</span> Emily Carter</p>
+            <p><span>Born:</span> 20th August 1988</p>
+            <p><span>University:</span> Parsons School of Design</p>
+            <p><span>Skills:</span> Luxurious and Timeless Designs</p>
+            <p><span>Experience:</span> 12 years</p>
+        </div>
+        <div class="contact-details">
+            <p><span>Phone:</span> 01745678901</p>
+            <p><span>Email:</span> emilycarter@luxdesigns.com</p>
+            <p><span>Address:</span> Banani, Bangladesh</p>
+        </div>
+    </div>
+
+    
+
+    <div class="slider-container">
+        <h3 class="slider-heading">Carters Best </h3>
+        <div class="slider">
+            <img src="interior3.jpg" alt="Interior Design 1">
+            <img src="home1.jpg" alt="Interior Design 2">
+            <img src="home2.jpg" alt="Interior Design 3">
+            <img src="home3.jpg" alt="Interior Design 4">
+            <img src="home4.jpg" alt="Interior Design 5">
+            <img src="home5.jpg" alt="Interior Design 6">
+            <img src="interior3.jpg" alt="Interior Design 1">
+            <img src="home1.jpg" alt="Interior Design 2">
+            <img src="home2.jpg" alt="Interior Design 3">
+            <img src="home3.jpg" alt="Interior Design 4">
+            <img src="home4.jpg" alt="Interior Design 5">
+            <img src="home5.jpg" alt="Interior Design 6">
+            <img src="interior3.jpg" alt="Interior Design 1">
+            <img src="home1.jpg" alt="Interior Design 2">
+            <img src="home2.jpg" alt="Interior Design 3">
+            <img src="home3.jpg" alt="Interior Design 4">
+            <img src="home4.jpg" alt="Interior Design 5">
+            <img src="home5.jpg" alt="Interior Design 6">
+            <img src="interior3.jpg" alt="Interior Design 1">
+            <img src="home1.jpg" alt="Interior Design 2">
+            <img src="home2.jpg" alt="Interior Design 3">
+            <img src="home3.jpg" alt="Interior Design 4">
+            <img src="home4.jpg" alt="Interior Design 5">
+            <img src="home5.jpg" alt="Interior Design 6">
+            <img src="interior3.jpg" alt="Interior Design 1">
+            <img src="home1.jpg" alt="Interior Design 2">
+            <img src="home2.jpg" alt="Interior Design 3">
+            <img src="home3.jpg" alt="Interior Design 4">
+            <img src="home4.jpg" alt="Interior Design 5">
+            <img src="home5.jpg" alt="Interior Design 6">
+            <img src="interior3.jpg" alt="Interior Design 1">
+            <img src="home1.jpg" alt="Interior Design 2">
+            <img src="home2.jpg" alt="Interior Design 3">
+            <img src="home3.jpg" alt="Interior Design 4">
+            <img src="home4.jpg" alt="Interior Design 5">
+            <img src="home5.jpg" alt="Interior Design 6">
+            <img src="interior3.jpg" alt="Interior Design 1">
+            <img src="home1.jpg" alt="Interior Design 2">
+            <img src="home2.jpg" alt="Interior Design 3">
+            <img src="home3.jpg" alt="Interior Design 4">
+            <img src="home4.jpg" alt="Interior Design 5">
+            <img src="home5.jpg" alt="Interior Design 6">
+            <img src="interior3.jpg" alt="Interior Design 1">
+            <img src="home1.jpg" alt="Interior Design 2">
+            <img src="home2.jpg" alt="Interior Design 3">
+            <img src="home3.jpg" alt="Interior Design 4">
+            <img src="home4.jpg" alt="Interior Design 5">
+            <img src="home5.jpg" alt="Interior Design 6">
+        </div>
+    </div>
+
+   
+
+    <footer>
+        <p>&copy; 2024 REAL BUILDERS. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+    
+
+   
+
+    

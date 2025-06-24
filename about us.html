@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Builders - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        header nav a, header .sign-in {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        header nav a:hover, header .sign-in:hover {
+            background: red;
+            color: #fff;
+            border-color: red;
+        }
+
+        .section {
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .section .paragraph-box {
+            background: linear-gradient(to bottom right, #e6f7ff, #ffffff);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 10px auto;
+            max-width: 800px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .button-container {
+            margin: 20px 0;
+        }
+
+        .button-container a {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .button-container a:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .footer {
+            background: #333;
+            color: #fff;
+            padding: 30px 50px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>REAL BUILDERS</h1>
+        </div>
+        <nav>
+            <a href="mb.php">Home</a>
+            <a href="buy.html">FlexiDeal</a>
+            <a href="viewsell.php">Sell</a>
+            <a href="viewrent.php">Rent</a>
+            <a href="designers.html">Interior Design Solutions</a>
+        </nav>
+        <div>
+            <a href="signin.html" class="sign-in" id="logout">Logout</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>About Us</h2>
+        <div class="paragraph-box">
+            Welcome to REAL BUILDERS, your trusted partner in real estate development, sales, and consultation. With a legacy of excellence and a commitment to quality, we have been transforming dreams into reality by creating spaces where people live, work, and thrive.
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Our Mission</h2>
+        <div class="paragraph-box">
+            Our mission is to deliver exceptional real estate solutions by adhering to the highest standards of design, construction, and customer service. We aim to contribute to the growth of communities by creating innovative, sustainable, and value-driven properties.
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>What We Offer</h2>
+        <div class="paragraph-box">
+            We offer a wide range of services including:
+            <ul style="list-style: disc; margin: 15px 30px; text-align: left;">
+                <li>Residential Properties: From luxury villas to affordable apartments, we build homes tailored to your lifestyle.</li>
+                <li>Commercial Spaces: High-quality office spaces and retail complexes designed for success.</li>
+                <li>Custom Projects: Tailored construction solutions for unique needs and visions.</li>
+                <li>Real Estate Consultation: Expert guidance to help you make informed decisions in the real estate market.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Why Choose Us?</h2>
+        <div class="paragraph-box">
+            At REAL BUILDERS, we pride ourselves on our:
+            <ul style="list-style: disc; margin: 15px 30px; text-align: left;">
+                <li>Expertise: Decades of experience in the real estate industry.</li>
+                <li>Quality: Meticulous attention to detail in every project.</li>
+                <li>Integrity: Transparent dealings and ethical practices.</li>
+                <li>Customer Focus: Dedicated support and personalized services.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>Contact Us</h3>
+        <p>We are here to help you take the next step in your real estate journey. Feel free to get in touch with us to learn more about our services or to discuss your requirements.</p>
+        <p>&copy; 2024 REAL BUILDERS. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Check if the user is logged in
+        if (!sessionStorage.getItem('isLoggedIn')) {
+            window.location.href = 'signin.html'; // Redirect to login page if not logged in
+        }
+
+
+
+
+
+
+        // Logout action
+        document.getElementById('logout').addEventListener('click', function() {
+            // Clear sessionStorage when logging out
+            sessionStorage.clear();
+            alert('Logged out');
+            window.location.href = 'signin.html'; // Redirect to login page after logout
+        });
+    });
+
+    console.log("isLoggedIn:", sessionStorage.getItem('isLoggedIn'));
+console.log("username:", sessionStorage.getItem('username'));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Activity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d8d8d8, #ffffff);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #c9c9c9, #e1e1e1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .activity-container {
+            text-align: center;
+            margin: 50px auto;
+            width: 80%;
+        }
+
+        .bar {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            height: 40px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            line-height: 40px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 25px;
+            transition: width 0.8s ease-in-out;
+        }
+        .dashboard-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: #ff5733;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.dashboard-btn:hover {
+    background: #ca3636;
+}
+
+        .users-bar {
+            background: #ff5733;
+        }
+
+        .properties-bar {
+            background: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Client Activity</h1>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="admin.html" class="dashboard-btn">Back to Dashboard</a>
+    </div>
+    
+</header>
+
+<div class="activity-container">
+    <h2>Activity Overview</h2>
+    <p>Number of Users</p>
+    <div class="bar">
+        <div class="bar-fill users-bar" id="users-bar" style="width: 0%;">0</div>
+    </div>
+
+    <p>Number of Properties</p>
+    <div class="bar">
+        <div class="bar-fill properties-bar" id="properties-bar" style="width: 0%;">0</div>
+    </div>
+</div>
+
+<script>
+    function updateBars(users, properties) {
+        let userBar = document.getElementById('users-bar');
+        let propertyBar = document.getElementById('properties-bar');
+
+        let maxCount = Math.max(users, properties);
+        let userWidth = (users / maxCount) * 100;
+        let propertyWidth = (properties / maxCount) * 100;
+
+        userBar.style.width = userWidth + "%";
+        userBar.innerText = users;
+
+        propertyBar.style.width = propertyWidth + "%";
+        propertyBar.innerText = properties;
+    }
+
+    fetch('client_activity.php')
+        .then(response => response.json())
+        .then(data => {
+            updateBars(data.users, data.properties);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+</script>
+
+</body>
+</html>
